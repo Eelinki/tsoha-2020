@@ -1,15 +1,9 @@
 # keskustelufoorumi
 
-Yksinkertainen keskustelufoorumi.
+Keskustelufoorumilla ylläpitäjät voivat luoda, muokata sekä poistaa lautoja. Käyttäjät voivat aloittaa keskusteluita laudoilla määrittämällä aiheen. Keskustelufoorumia voidaan käyttää esimerkiksi yhteisön tai ryhmän kesken.
 
-## Ominaisuudet
-
- * Tunnuksen luonti
- * Lautojen tekeminen (boards)
- * Langan aloittaminen (threads)
- * Lankaan vastaaminen
- * Käyttäjäryhmät
+[Käyttötapaukset](documentation/user_stories.md)
 
 ## Tietokantakaavio
 
-![tietokantakaavio](tietokantakaavio.png)
+![tietokantakaavio](documentation/db-diagram.png)

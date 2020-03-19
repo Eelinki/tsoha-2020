@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <table>
+    <tr>
+      <th>User</th>
+      <th>Date created</th>
+      <th>Reset password</th>
+    </tr>
+    {% for user in users %}
+    <tr>
+      <td>{{ user.name }}</td>
+      <td>{{ user.date_created }}</td>
+      <td>
+        <form method="POST" action="{{ url_for('users_reset_password', user_id=user.id) }}">
+          <input type="submit" value="Reset password"/>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+{% endblock %}
