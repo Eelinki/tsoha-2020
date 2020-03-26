@@ -3,21 +3,17 @@
 {% block body %}
   <table>
     <tr>
+      <th>Name</th>
       <th>Username</th>
       <th>Password</th>
       <th>Date created</th>
-      <th>Reset password</th>
     </tr>
     {% for user in users %}
     <tr>
       <td>{{ user.name }}</td>
+      <td>{{ user.username }}</td>
       <td>{{ user.password }}</td>
       <td>{{ user.date_created }}</td>
-      <td>
-        <form method="POST" action="{{ url_for('users_reset_password', user_id=user.id) }}">
-          <input type="submit" value="Reset password"/>
-        </form>
-      </td>
     </tr>
     {% endfor %}
   </table>

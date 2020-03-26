@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <form method="POST" action="{{ url_for('edit_board', board_id=board.id) }}">
+    <p>
+      {{ form.boardname.label }} {{ form.boardname(value=board.boardname) }}
+
+      <ul>
+        {% for error in form.boardname.errors %}
+          <li>{{ error }}</li>
+        {% endfor %}
+      </ul>
+    </p>
+    <input type="submit" value="Save changes"/>
+  </form>
+{% endblock %}

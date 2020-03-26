@@ -1,7 +1,16 @@
 {% extends "layout.html" %}
 
 {% block body %}
-  <form method="POST" action="{{ url_for('users_create') }}">
+  <form method="POST" action="{{ url_for('auth_register') }}">
+    <p>
+      {{ form.name.label }} {{ form.name }}
+
+      <ul>
+        {% for error in form.name.errors %}
+          <li>{{ error }}</li>
+        {% endfor %}
+      </ul>
+    </p>
     <p>
       {{ form.username.label }} {{ form.username }}
 
@@ -20,6 +29,6 @@
         {% endfor %}
       </ul>
     </p>
-    <input type="submit" value="Add a new user"/>
+    <input type="submit" value="Register"/>
   </form>
 {% endblock %}
