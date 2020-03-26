@@ -1,6 +1,7 @@
 from application import app, db
 from flask import redirect, render_template, request, url_for
 from application.users.models import User
+from application.users.forms import UserForm
 
 @app.route("/users", methods=["GET"])
 def users_index():
@@ -8,13 +9,19 @@ def users_index():
 
 @app.route("/users/new/")
 def users_form():
-    return render_template("users/new.html")
+    return render_template("users/new.html", form = UserForm())
 
 @app.route("/users/", methods=["POST"])
 def users_create():
-    u = User(request.form.get("name"))
+    form = UserForm(request.form)
 
-    db.session().add(u)
+    if not form.validate():
+        return render_template("users/new.html", form = form)
+
+    user = User(form.username.data)
+    user.password = form.password.data
+
+    db.session().add(user)
     db.session().commit()
   
     return redirect(url_for("users_index"))
