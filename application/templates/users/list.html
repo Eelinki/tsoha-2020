@@ -5,14 +5,12 @@
     <tr>
       <th>Name</th>
       <th>Username</th>
-      <th>Password</th>
       <th>Date created</th>
     </tr>
     {% for user in users %}
     <tr>
       <td>{{ user.name }}</td>
       <td>{{ user.username }}</td>
-      <td>{{ user.password }}</td>
       <td>{{ user.date_created }}</td>
     </tr>
     {% endfor %}
