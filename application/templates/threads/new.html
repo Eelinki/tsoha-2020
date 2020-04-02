@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <h1>Start a new thread</h1>
+
+    <form method="POST" action="{{ url_for('threads_create') }}">
+        <p>
+            {{ form.title.label }} {{ form.title }}
+
+            <ul>
+            {% for error in form.title.errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+            </ul>
+        </p>
+        <input type="submit" value="Submit"/>
+    </form>
+{% endblock %}

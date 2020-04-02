@@ -2,27 +2,51 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Forum</title>
-  </head>
 
+    <title>Forum</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/reset.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+  </head>
   <body>
-    {% if current_user.is_authenticated %}
-      <p>
-        Logged in as {{ current_user.name }}. <a href="{{ url_for('auth_logout') }}">Log out</a>
-      </p>
-    {% else %}
-      <a href="{{ url_for('auth_login') }}">Log in</a>
-      <a href="{{ url_for('auth_register') }}">Register</a>
-    {% endif %}
-    
-    <ul>
-      <li><a href="{{ url_for('users_index') }}">List users</a></li>
-      <li><a href="{{ url_for('boards_index') }}">List Boards</a></li>
-    </ul>
-    {% block body %}
-      <p>
-        Content.
-      </p>
-    {% endblock %}
+    <nav>
+        <ul class="container">
+          <li><a href="{{ url_for('index') }}">Home</a></li>
+          <li><a href="{{ url_for('boards_index') }}">Boards</a></li>
+          <li><a href="{{ url_for('users_index') }}">Users</a></li>
+          <li><a href="{{ url_for('threads_index') }}">Threads</a></li>
+          {% if current_user.is_authenticated %}
+            <div class="align-right">
+              <li><a href="{{ url_for('auth_logout') }}">Log out</a></li>
+            </div>
+          {% else %}
+            <div class="align-right">
+              <li><a href="{{ url_for('auth_login') }}">Log in</a></li>
+              <li><a href="{{ url_for('auth_register') }}">Register</a></li>
+            </div>
+          {% endif %}
+        </ul>
+    </nav>
+    <div class="subnav">
+      <div class="container">
+        {% if current_user.is_authenticated %}
+          <p>
+            Logged in as {{ current_user.name }}
+          </p>
+        {% else %}
+          <a href="{{ url_for('auth_login') }}">Log in</a>
+          <a href="{{ url_for('auth_register') }}">Register</a>
+        {% endif %}
+      </div>
+    </div>
+    <main class="container">
+      {% block body %}
+        <p>
+          Content.
+        </p>
+      {% endblock %}
+      </main>
   </body>
 </html>

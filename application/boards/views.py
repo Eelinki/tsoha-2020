@@ -6,7 +6,11 @@ from application.boards.forms import BoardForm
 
 @app.route("/boards/", methods=["GET"])
 def boards_index():
-    return render_template("boards/list.html", boards = Board.query.all())
+    return render_template("boards/list.html", boards = Board.query.order_by(Board.boardname).all())
+
+@app.route("/boards/manage", methods=["GET"])
+def boards_manage():
+    return render_template("boards/list.html", boards = Board.query.order_by(Board.boardname).all(), manage = True)
 
 @app.route("/boards/new", methods=["POST"])
 def boards_create():
@@ -23,6 +27,7 @@ def boards_create():
     return redirect(url_for("boards_index"))
 
 @app.route("/boards/<board_id>/delete", methods=["POST"])
+@login_required
 def delete_board(board_id):
     Board.query.filter_by(id=board_id).delete()
 

@@ -2,24 +2,31 @@
 
 {% block body %}
   <h2>Boards</h2>
-  <a href="{{ url_for('boards_form') }}">Create a new board</a>
+  <p><a href="{{ url_for('boards_form') }}">Create a new board</a></p>
+  {% if manage != True %}
+    <p><a href="{{ url_for('boards_manage') }}">Manage boards</a></p>
+  {% endif %}
   <table>
     <tr>
       <th>Board name</th>
       <th>Date created</th>
-      <th>Modify</th>
-      <th>Delete</th>
+      {% if manage == True %}
+        <th>Modify</th>
+        <th>Delete</th>
+      {% endif %}
     </tr>
     {% for board in boards %}
     <tr>
       <td>{{ board.boardname }}</td>
-      <td>{{ board.date_created }}</td>
-      <td><a href="{{ url_for('edit_board', board_id=board.id) }}">Edit</a></td>
-      <td>
+      <td class="center">{{ board.date_created }}</td>
+      {% if manage == True %}
+      <td class="center"><a href="{{ url_for('edit_board', board_id=board.id) }}">Edit</a></td>
+      <td class="center">
         <form method="POST" action="{{ url_for('delete_board', board_id=board.id) }}">
           <input type="submit" value="X"/>
         </form>
       </td>
+      {% endif %}
     </tr>
     {% endfor %}
   </table>

@@ -1,7 +1,17 @@
 {% extends "layout.html" %}
 
 {% block body %}
-  <p>
-    Hello world!
-  </p>
+  <h1>Forum</h1>
+
+  {% if new_users is defined %}
+    <h2>New users (no threads yet)</h2>
+    
+    <ul>
+      {% for user in new_users %}
+      <li>
+        {{user.username}}
+      </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
 {% endblock %}
