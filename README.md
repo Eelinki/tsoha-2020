@@ -10,6 +10,26 @@ Salasana: `salis123`
 
 [Käyttötapaukset](documentation/user_stories.md)
 
+## Asennusohje
+
+Ota virtualenv käyttöön
+
+```
+python -m venv venv
+```
+
+Asenna tarvittavat kirjastot komennolla
+
+```
+pip install -r requirements.txt
+```
+
+Käynnistä palvelin
+
+```
+python ./run.py
+```
+
 ## Tietokantakaavio
 
 ![tietokantakaavio](documentation/db-diagram.png)

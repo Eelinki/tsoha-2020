@@ -13,11 +13,12 @@
 */
 
 :root {
-    --primary: #e74c3c;
-    --primary-light: #fa5241;
-    --primary-dark: #c0392b;
-    --secondary: #f1c40f;
-    --secondary-dark: #f39c12;
+    --primary: #1333B9;
+    --primary-light: #4666EC;
+    --primary-dark: #0A195C;
+    --secondary: #4014B8;
+    --secondary-light: #7347EB;
+    --secondary-dark: #200A5C;
     --background: #ecf0f1;
     --on-background: #2c3e50;
     --on-background-accent: #2980b9;
@@ -102,5 +103,9 @@ main table td.center {
 .subnav {
     background: var(--primary-light);
     padding: 0.8em 1em;
+    color: var(--on-primary);
+}
+
+.subnav a {
     color: var(--on-primary);
 }

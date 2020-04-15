@@ -30,6 +30,9 @@ class User(Base):
     def is_authenticated(self):
         return True
 
+    def roles(self):
+        return ["ADMIN"]
+
     @staticmethod
     def users_without_threads():
         stmt = text("SELECT Account.id, Account.username FROM Account"
