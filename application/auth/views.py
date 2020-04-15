@@ -3,17 +3,18 @@ from flask_login import login_user, logout_user, login_required
 from application import app, db
 from application.auth.models import User
 from application.auth.forms import LoginForm, RegisterForm
+from application.threads.models import Thread
 
 @app.route("/users/", methods=["GET"])
 def users_index():
     return render_template("users/list.html", users = User.query.all())
 
-@app.route("/users/<user_id>", methods=["GET"])
-def users_profile(user_id):
-
+@app.route("/user/<user_id>", methods=["GET"])
+def user_profile(user_id):
     user = User.query.get(user_id)
+    threads = Thread.query.filter_by(user_id = user_id)
   
-    return render_template("users/user.html", user = user)
+    return render_template("users/user.html", user = user, threads = threads)
 
 @app.route("/auth/login", methods = ["GET", "POST"])
 def auth_login():

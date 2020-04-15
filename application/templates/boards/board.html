@@ -1,0 +1,7 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <h1>{{ board.boardname }}</h1>
+
+  {% include "threads/list-threads.html" %}
+{% endblock %}

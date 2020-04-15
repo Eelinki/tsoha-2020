@@ -2,6 +2,7 @@ from application import app, db, login_required
 from flask import redirect, render_template, request, url_for
 from application.boards.models import Board
 from application.boards.forms import BoardForm
+from application.threads.models import Thread
 
 @app.route("/boards/", methods=["GET"])
 def boards_index():
@@ -53,3 +54,10 @@ def edit_board(board_id):
 @login_required(role="ADMIN")
 def boards_form():
     return render_template("boards/new.html", form = BoardForm())
+
+@app.route("/board/<board_id>/", methods = ["GET"])
+def view_board(board_id):
+    board = Board.query.get(board_id)
+    threads = Thread.query.filter_by(board_id = board_id)
+
+    return render_template("boards/board.html", board = board, threads = threads)

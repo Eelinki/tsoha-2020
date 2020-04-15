@@ -18,6 +18,7 @@ def threads_create():
 
     thread = Thread(form.title.data)
     thread.user_id = current_user.id
+    thread.board_id = 1
 
     db.session().add(thread)
     db.session().commit()

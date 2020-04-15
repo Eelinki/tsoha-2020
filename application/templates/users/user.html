@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <h1>{{user.username}}</h1>
+
+  <h2>Threads by {{user.username}}</h2>
+
+  {% include "threads/list-threads.html" %}
+{% endblock %}
