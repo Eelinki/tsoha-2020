@@ -2,12 +2,14 @@
   <table>
     <tr>
       <th>Title</th>
+      <th>Board</th>
       <th>Date created</th>
       <th>Posted by</th>
     </tr>
     {% for thread in threads %}
     <tr>
       <td>{{ thread.title }}</td>
+      <td class="center">{{ thread.board.boardname }}</td>
       <td class="center">{{ thread.date_created }}</td>
       <td class="center">{{ thread.user.username }}</td>
     </tr>

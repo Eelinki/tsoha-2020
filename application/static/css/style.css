@@ -108,4 +108,5 @@ main table td.center {
 
 .subnav a {
     color: var(--on-primary);
+    border-bottom: 1px dotted var(--on-primary);
 }
