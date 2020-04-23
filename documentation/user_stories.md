@@ -3,10 +3,41 @@
 ## Keskeiset ominaisuudet
 
  * Tunnuksen luonti
+
+```
+INSERT INTO account
+    (name, username, password) VALUES ("name", "username", "password")
+```
+
  * Ylläpitäjänä lautojen tekeminen (boards)
+
+```
+INSERT INTO boards
+    (boardname) VALUES ("board name")
+```
+
  * Langan aloittaminen (threads)
+
+```
+INSERT INTO threads
+    (title, user_id, board_id) VALUES ("title", 1, 1)
+```
+
  * Lankaan vastaaminen
- * Käyttäjäryhmät
+
+```
+INSERT INTO posts
+    (message, thread_id, user_id) VALUES ("message", 1, 1)
+```
+
+ * Tarkastella käyttäjiä joilla ei ole vielä lankoja
+
+```
+SELECT account.username FROM account
+    LEFT JOIN thread ON thread.user_id = account.id
+    GROUP BY account.id
+    HAVING COUNT(thread.id) = 0
+```
 
 ## User stories
 

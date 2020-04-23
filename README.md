@@ -8,7 +8,10 @@ Käyttäjätunnus: `test`
 
 Salasana: `salis123`
 
-[Käyttötapaukset](documentation/user_stories.md)
+## Dokumentaatio
+
+* [Käyttötapaukset](documentation/user_stories.md)
+* [Tietokantakaavio](documentation/db_diagram.md)
 
 ## Asennusohje
 
@@ -29,7 +32,3 @@ Käynnistä palvelin
 ```
 python ./run.py
 ```
-
-## Tietokantakaavio
-
-![tietokantakaavio](documentation/db-diagram.png)
