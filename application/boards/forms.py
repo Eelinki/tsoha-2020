@@ -7,3 +7,9 @@ class BoardForm(FlaskForm):
 
     class Meta:
         csrf = False
+
+class ThreadForm(FlaskForm):
+    title = StringField("Title", [InputRequired(), Length(max=64)])
+
+    class Meta:
+        csrf = False
