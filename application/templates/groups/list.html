@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <h2>Groups</h2>
+  {% if current_user.is_authenticated and "ADMIN" in current_user.roles() %}
+    <p><a href="{{ url_for('group_form') }}">Create a new group</a></p>
+  {% endif %}
+  <table>
+    <tr>
+      <th>Group name</th>
+      <th>Action</th>
+    </tr>
+    {% for group in groups %}
+    <tr>
+      <td>{{ group.groupname }}</td>
+      {% if group in current_user.groups %}
+        <td class="center"><a href="{{ url_for('leave_group', group_id = group.id) }}">Leave group</a></td>
+      {% else %}
+        <td class="center"><a href="{{ url_for('join_group', group_id = group.id) }}">Join group</a></td>
+      {% endif %}
+    </tr>
+    {% endfor %}
+  </table>
+{% endblock %}

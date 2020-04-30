@@ -3,6 +3,13 @@
 {% block body %}
   <h1>{{user.username}}</h1>
 
+  <h2>Groups</h2>
+  <ul>
+    {% for group in user.groups %}
+      <li>{{ group.groupname }}</li>
+    {% endfor %}
+  </ul>
+
   <h2>Threads by {{user.username}}</h2>
 
   {% include "threads/list-threads.html" %}

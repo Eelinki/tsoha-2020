@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <h1>Create a new group</h1>
+
+  <form method="POST" action="{{ url_for('groups_create') }}">
+    <p>
+      {{ form.groupname.label }} {{ form.groupname }}
+
+      <ul>
+        {% for error in form.groupname.errors %}
+          <li>{{ error }}</li>
+        {% endfor %}
+      </ul>
+    </p>
+    <input type="submit" value="Add a new group"/>
+  </form>
+{% endblock %}

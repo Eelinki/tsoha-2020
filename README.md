@@ -12,6 +12,7 @@ Salasana: `salis123`
 
 * [Käyttötapaukset](documentation/user_stories.md)
 * [Tietokantakaavio](documentation/db_diagram.md)
+* [Käyttöohjeet](documentation/user_guide.md)
 
 ## Asennusohje
 

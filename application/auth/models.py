@@ -1,5 +1,6 @@
 from application import db
 from application.models import Base
+from application.groups.models import group_users
 
 from sqlalchemy.sql import text
 
@@ -13,6 +14,12 @@ class User(Base):
 
     threads = db.relationship("Thread", backref='userthreads', lazy=True)
     posts = db.relationship("Post", backref='userposts', lazy=True)
+
+    groups = db.relationship(
+        'Group',
+        secondary=group_users,
+        backref=db.backref('bref', lazy='dynamic')
+    )
 
     def __init__(self, username, password, name = ''):
         self.username = username

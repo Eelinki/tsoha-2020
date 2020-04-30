@@ -18,6 +18,8 @@
           <li><a href="{{ url_for('users_index') }}">Users</a></li>
           <li><a href="{{ url_for('threads_index') }}">Threads</a></li>
           {% if current_user.is_authenticated %}
+            <li><a href="{{ url_for('list_groups') }}">Groups</a></li>
+
             <div class="align-right">
               <li><a href="{{ url_for('auth_logout') }}">Log out</a></li>
             </div>

@@ -2,10 +2,14 @@
 
 {% block body %}
   <h2>Boards</h2>
-  <p><a href="{{ url_for('boards_form') }}">Create a new board</a></p>
-  {% if manage != True %}
-    <p><a href="{{ url_for('boards_manage') }}">Manage boards</a></p>
+  
+  {% if current_user.is_authenticated and "ADMIN" in current_user.roles() %}
+    <p><a href="{{ url_for('boards_form') }}">Create a new board</a></p>
+    {% if manage != True %}
+      <p><a href="{{ url_for('boards_manage') }}">Manage boards</a></p>
+    {% endif %}
   {% endif %}
+  
   <table>
     <tr>
       <th>Board name</th>

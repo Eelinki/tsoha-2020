@@ -54,6 +54,9 @@ from application.threads import views
 
 from application.posts import models
 
+from application.groups import models
+from application.groups import views
+
 from application.auth.models import User
 
 @login_manager.user_loader
