@@ -46,8 +46,11 @@ Ylläpitäjillä voi olla useita syitä käyttää keskustelufoorumia:
  * Ylläpidän peliyhteisöä netissä ja laajentaa yhteisöä keskustelufoorumilla
  * Olen yrityksen CFO ja haluan alustan yrityksen sisäiseen viestintään
  * Haluan luoda julkisen keskustelufoorumin autoista ja rakentaa yhteisöä, jonka jäsenillä on yhteinen harrastus
+ * Voin moderoida keskustelufoorumia poistamalla lankoja.
 
- Käyttäjät voivat hyödyntää keskustelufoorumia:
+Käyttäjät voivat hyödyntää keskustelufoorumia:
 
  * Etsin tietoa lemmikkieläimistä ja jakaa omia vinkkejäni
  * Löysin nettikaupan ja haluan jakaa sen muiden harrastajien kesken
+ * Voin poistaa tekemäni langan, koska se ei ole enää ajankohtaista
+ * Voin muokata lankani otsikkoa pitääkseni sen relevanttina.

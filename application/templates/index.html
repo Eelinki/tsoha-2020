@@ -13,5 +13,15 @@
       </li>
       {% endfor %}
     </ul>
+
+    <h2>Most popular boards</h2>
+    
+    <ul>
+      {% for board in board_thread_count %}
+      <li>
+        {{board.boardname}}: {{board.threads}} threads
+      </li>
+      {% endfor %}
+    </ul>
   {% endif %}
 {% endblock %}

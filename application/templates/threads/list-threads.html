@@ -8,7 +8,7 @@
     </tr>
     {% for thread in threads %}
     <tr>
-      <td>{{ thread.title }}</td>
+      <td><a href="{{ url_for('view_thread', thread_id=thread.id) }}">{{ thread.title }}</a></td>
       <td class="center">{{ thread.board.boardname }}</td>
       <td class="center">{{ thread.date_created }}</td>
       <td class="center">{{ thread.user.username }}</td>

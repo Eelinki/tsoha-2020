@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <form method="POST" action="{{ url_for('edit_thread', thread_id=thread.id) }}">
+    <p>
+      {{ form.title.label }} {{ form.title(value=thread.title) }}
+
+      <ul>
+        {% for error in form.title.errors %}
+          <li>{{ error }}</li>
+        {% endfor %}
+      </ul>
+    </p>
+    <input type="submit" value="Save changes"/>
+  </form>
+{% endblock %}

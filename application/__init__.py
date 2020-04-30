@@ -52,6 +52,8 @@ from application.auth import views
 from application.threads import models
 from application.threads import views
 
+from application.posts import models
+
 from application.auth.models import User
 
 @login_manager.user_loader

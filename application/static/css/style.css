@@ -34,6 +34,10 @@ body {
     color: var(--on-background);
 }
 
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+
 a {
     text-decoration: none;
     color: var(--on-background-accent);
@@ -109,4 +113,28 @@ main table td.center {
 .subnav a {
     color: var(--on-primary);
     border-bottom: 1px dotted var(--on-primary);
+}
+
+hr {
+    border: 0;
+    border-bottom: 1px solid #fff;
+}
+
+.post {
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.post .user {
+    font-style: italic;
+}
+
+.post .message {
+    padding: 1em;
+}
+
+.post hr {
+    border: 0;
+    border-bottom: 1px solid gray;
+    margin-bottom: 1em;
 }

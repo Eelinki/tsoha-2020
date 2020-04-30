@@ -11,7 +11,8 @@ class User(Base):
     username = db.Column(db.String(144), nullable=False)
     password = db.Column(db.String(144), nullable=False)
 
-    threads = db.relationship("Thread", backref='account', lazy=True)
+    threads = db.relationship("Thread", backref='userthreads', lazy=True)
+    posts = db.relationship("Post", backref='userposts', lazy=True)
 
     def __init__(self, username, password, name = ''):
         self.username = username
@@ -31,7 +32,10 @@ class User(Base):
         return True
 
     def roles(self):
-        return ["ADMIN"]
+        if(self.id == 1):
+            return ["ADMIN"]
+        else:
+            return ["USER"]
 
     @staticmethod
     def users_without_threads():

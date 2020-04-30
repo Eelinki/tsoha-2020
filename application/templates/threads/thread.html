@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <h1>{{ thread.title }}</h1>
+  <p><a href="{{ url_for('edit_thread', thread_id=thread.id) }}">Edit thread</a></p>
+  <p><a href="{{ url_for('delete_thread', thread_id=thread.id) }}">Delete thread</a></p>
+
+  <table>
+    {% for post in posts %}
+      <div class="post">
+        <hr>
+        <p class="user">Posted by <a href="{{ url_for('user_profile', user_id=post.user.id) }}">{{ post.user.username }}</a>, {{ post.date_created }}</p>
+        <p class="message">{{ post.message }}</p>
+      </div>
+    {% endfor %}
+  </table>
+
+  {% include "posts/new.html" %}
+{% endblock %}

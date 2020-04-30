@@ -1,0 +1,16 @@
+{% block body %}
+  <hr>
+  <h2>Reply</h2>
+  <form method="POST" action="{{ url_for('thread_reply', thread_id=thread.id) }}">
+    <p>
+      {{ form.message.label }} {{ form.message }}
+
+      <ul>
+        {% for error in form.message.errors %}
+          <li>{{ error }}</li>
+        {% endfor %}
+      </ul>
+    </p>
+    <input type="submit" value="Reply"/>
+  </form>
+{% endblock %}
