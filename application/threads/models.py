@@ -8,5 +8,7 @@ class Thread(Base):
     user = db.relationship("User", backref="threaduser", lazy=True)
     board = db.relationship("Board", backref="threadboard", lazy=True)
 
+    posts = db.relationship("Post", backref='threadposts', lazy=True, cascade="all, delete-orphan")
+
     def __init__(self, title):
         self.title = title

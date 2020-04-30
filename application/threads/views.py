@@ -28,8 +28,7 @@ def delete_thread(thread_id):
     if not(thread.user_id == current_user.id or "ADMIN" in current_user.roles()):
         return login_manager.unauthorized()
 
-    Thread.query.filter_by(id=thread_id).delete()
-
+    db.session.delete(thread)
     db.session().commit()
   
     return redirect(url_for("boards_index"))

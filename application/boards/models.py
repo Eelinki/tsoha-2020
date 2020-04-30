@@ -6,7 +6,7 @@ from sqlalchemy.sql import text
 class Board(Base):
     boardname = db.Column(db.String(64), nullable=False)
 
-    threads = db.relationship("Thread", backref='threads', lazy=True)
+    threads = db.relationship("Thread", backref='boardthreads', lazy=True, cascade="all, delete-orphan")
 
     def __init__(self, boardname):
         self.boardname = boardname

@@ -32,8 +32,9 @@ def boards_create():
 @app.route("/boards/<board_id>/delete", methods=["POST"])
 @login_required(role="ADMIN")
 def delete_board(board_id):
-    Board.query.filter_by(id=board_id).delete()
+    board = Board.query.get(board_id)
 
+    db.session.delete(board)
     db.session().commit()
   
     return redirect(url_for("boards_index"))
