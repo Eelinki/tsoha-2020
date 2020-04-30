@@ -11,8 +11,9 @@ Salasana: `salis123`
 ## Dokumentaatio
 
 * [Käyttötapaukset](documentation/user_stories.md)
-* [Tietokantakaavio](documentation/db_diagram.md)
+* [Tietokantakaavio ja SQL-schema](documentation/db_diagram.md)
 * [Käyttöohjeet](documentation/user_guide.md)
+* [Jatkokehitys](documentation/further_development.md)
 
 ## Asennusohje
 
@@ -32,4 +33,11 @@ Käynnistä palvelin
 
 ```
 python ./run.py
+```
+
+### Ajaaksesi sovellusta Herokussa
+
+```
+heroku create
+git push heroku master
 ```
